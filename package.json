@@ -1,0 +1,29 @@
+{
+  "name": "trustlance",
+  "version": "1.0.0",
+  "description": "Reputation-weighted freelance escrow platform",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server",
+    "contracts"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=server\" \"npm run dev --workspace=client\"",
+    "dev:chain": "npm run node --workspace=contracts",
+    "deploy:local": "npm run deploy:local --workspace=contracts",
+    "seed": "npm run seed --workspace=server",
+    "test:contracts": "npm test --workspace=contracts",
+    "test:server": "npm test --workspace=server",
+    "install:all": "npm install && npm install --workspace=client && npm install --workspace=server && npm install --workspace=contracts"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "overrides": {
+    "uuid": "^9.0.0"
+  },
+  "dependencies": {
+    "uuid": "^9.0.0"
+  }
+}
